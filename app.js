@@ -4,7 +4,7 @@ const client = new sdk.Client();
 
 client
     .setEndpoint("https://cloud.appwrite.io/v1")
-    .setProject("6711634f0020cdd71c99")
+    .setProject("project id")
     .setKey("your key");
 
     const databases = new sdk.Databases(client);
