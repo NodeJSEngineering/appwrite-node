@@ -17,7 +17,7 @@ async function prepareDatabase() {
         // Check if database already exists
         const existingDatabases = await databases.list();
         todoDatabase = existingDatabases.databases.find(db => db.name === 'TodosDB');
-        
+
         if (!todoDatabase) {
             // Create new database if not existing
             todoDatabase = await databases.create(sdk.ID.unique(), 'TodosDB');
@@ -29,7 +29,7 @@ async function prepareDatabase() {
         // Check if collection already exists
         const existingCollections = await databases.listCollections(todoDatabase.$id);
         todoCollection = existingCollections.collections.find(col => col.name === 'Todos');
-        
+
         if (!todoCollection) {
             // Create new collection if not existing
             todoCollection = await databases.createCollection(todoDatabase.$id, sdk.ID.unique(), 'Todos');
@@ -41,20 +41,21 @@ async function prepareDatabase() {
         // Check and create attributes only if not already created
         const attributes = await databases.listAttributes(todoDatabase.$id, todoCollection.$id);
         
-        if (!attributes.some(attr => attr.key === 'title')) {
+        if (Array.isArray(attributes) && !attributes.some(attr => attr.key === 'title')) {
             await databases.createStringAttribute(todoDatabase.$id, todoCollection.$id, 'title', 255, true);
             console.log('Attribute created: title');
         }
         
-        if (!attributes.some(attr => attr.key === 'description')) {
+        if (Array.isArray(attributes) && !attributes.some(attr => attr.key === 'description')) {
             await databases.createStringAttribute(todoDatabase.$id, todoCollection.$id, 'description', 255, false, 'This is a test description');
             console.log('Attribute created: description');
         }
         
-        if (!attributes.some(attr => attr.key === 'isComplete')) {
+        if (Array.isArray(attributes) && !attributes.some(attr => attr.key === 'isComplete')) {
             await databases.createBooleanAttribute(todoDatabase.$id, todoCollection.$id, 'isComplete', true);
             console.log('Attribute created: isComplete');
         }
+
 
     } catch (error) {
         console.error("Error preparing database or attributes:", error);
@@ -83,7 +84,7 @@ async function seedDatabase() {
         await databases.createDocument(todoDatabase.$id, todoCollection.$id, sdk.ID.unique(), testTodo1);
         await databases.createDocument(todoDatabase.$id, todoCollection.$id, sdk.ID.unique(), testTodo2);
         await databases.createDocument(todoDatabase.$id, todoCollection.$id, sdk.ID.unique(), testTodo3);
-        
+
         console.log('Test todos seeded successfully.');
     } catch (error) {
         console.error("Error seeding database with todos:", error);
