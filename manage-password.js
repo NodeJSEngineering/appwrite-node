@@ -1,58 +1,52 @@
+const client = require("client");
 const sdk = require("node-appwrite");
-
-const client = new sdk.Client();
-
-client
-    .setEndpoint("https://cloud.appwrite.io/v1") // Ensure this is the correct endpoint
-    .setProject("") // Replace with your Project ID
-    .setKey(""); // Replace with your API Key
 
 const databases = new sdk.Databases(client);
 
-var todoDatabase;
-var todoCollection;
+var passwordDatabase;
+var passwordCollection;
 
 async function prepareDatabase() {
     try {
         // Check if database already exists
         const existingDatabases = await databases.list();
-        todoDatabase = existingDatabases.databases.find(db => db.name === 'TodosDB');
+        passwordDatabase = existingDatabases.databases.find(db => db.name === 'PasswordDB');
 
-        if (!todoDatabase) {
+        if (!passwordDatabase) {
             // Create new database if not existing
-            todoDatabase = await databases.create(sdk.ID.unique(), 'TodosDB');
-            console.log('Database created: TodosDB');
+            passwordDatabase = await databases.create(sdk.ID.unique(), 'PasswordDB');
+            console.log('Database created: PasswordDB');
         } else {
-            console.log('Database already exists: TodosDB');
+            console.log('Database already exists: PasswordDB');
         }
 
         // Check if collection already exists
-        const existingCollections = await databases.listCollections(todoDatabase.$id);
-        todoCollection = existingCollections.collections.find(col => col.name === 'Todos');
+        const existingCollections = await databases.listCollections(passwordDatabase.$id);
+        passwordCollection = existingCollections.collections.find(col => col.name === 'Passwords');
 
-        if (!todoCollection) {
+        if (!passwordCollection) {
             // Create new collection if not existing
-            todoCollection = await databases.createCollection(todoDatabase.$id, sdk.ID.unique(), 'Todos');
-            console.log('Collection created: Todos');
+            passwordCollection = await databases.createCollection(todoDatabase.$id, sdk.ID.unique(), 'Passwords');
+            console.log('Collection created: Passwords');
         } else {
-            console.log('Collection already exists: Todos');
+            console.log('Collection already exists: Passwords');
         }
 
         // Check and create attributes only if not already created
-        const attributes = await databases.listAttributes(todoDatabase.$id, todoCollection.$id);
+        const attributes = await databases.listAttributes(todoDatabase.$id, passwordCollection.$id);
         
         if (Array.isArray(attributes) && !attributes.some(attr => attr.key === 'title')) {
-            await databases.createStringAttribute(todoDatabase.$id, todoCollection.$id, 'title', 255, true);
+            await databases.createStringAttribute(todoDatabase.$id, passwordCollection.$id, 'title', 255, true);
             console.log('Attribute created: title');
         }
         
         if (Array.isArray(attributes) && !attributes.some(attr => attr.key === 'description')) {
-            await databases.createStringAttribute(todoDatabase.$id, todoCollection.$id, 'description', 255, false, 'This is a test description');
+            await databases.createStringAttribute(todoDatabase.$id, passwordCollection.$id, 'description', 255, false, 'This is a test description');
             console.log('Attribute created: description');
         }
         
         if (Array.isArray(attributes) && !attributes.some(attr => attr.key === 'isComplete')) {
-            await databases.createBooleanAttribute(todoDatabase.$id, todoCollection.$id, 'isComplete', true);
+            await databases.createBooleanAttribute(todoDatabase.$id, passwordCollection.$id, 'isComplete', true);
             console.log('Attribute created: isComplete');
         }
 
@@ -81,9 +75,9 @@ async function seedDatabase() {
             isComplete: false
         };
 
-        await databases.createDocument(todoDatabase.$id, todoCollection.$id, sdk.ID.unique(), testTodo1);
-        await databases.createDocument(todoDatabase.$id, todoCollection.$id, sdk.ID.unique(), testTodo2);
-        await databases.createDocument(todoDatabase.$id, todoCollection.$id, sdk.ID.unique(), testTodo3);
+        await databases.createDocument(todoDatabase.$id, passwordCollection.$id, sdk.ID.unique(), testTodo1);
+        await databases.createDocument(todoDatabase.$id, passwordCollection.$id, sdk.ID.unique(), testTodo2);
+        await databases.createDocument(todoDatabase.$id, passwordCollection.$id, sdk.ID.unique(), testTodo3);
 
         console.log('Test todos seeded successfully.');
     } catch (error) {
@@ -93,7 +87,7 @@ async function seedDatabase() {
 
 async function getTodos() {
     try {
-        const todos = await databases.listDocuments(todoDatabase.$id, todoCollection.$id);
+        const todos = await databases.listDocuments(todoDatabase.$id, passwordCollection.$id);
         todos.documents.forEach(todo => {
             console.log(`Title: ${todo.title}\nDescription: ${todo.description}\nIs Todo Complete: ${todo.isComplete}\n\n`);
         });
@@ -109,4 +103,3 @@ async function runAllTasks() {
 }
 
 runAllTasks();
-
