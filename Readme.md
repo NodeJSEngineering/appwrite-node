@@ -1,107 +1,127 @@
-npm init
-npm install node-appwrite@11.1.1
-node app.js
+# My Awesome YouTube Channel
 
-https://appwrite.io/docs/products/functions/quick-start
+Welcome to my YouTube channel! 🎉 In this channel, I share exciting content related to web development. Whether you're interested in Angular, Javascript, or Productivity tips, you'll find something valuable here.
+[YouTube Channel](http://youtube.com/@neweraofcoding)
 
-Appwrite Functions were used to implement custom backend logic, such as automated notifications and task assignments. user-defined functions that can start small and scale big, deploying automatically from source control. These Functions can be triggered by HTTP requests, SDK methods, server events, webhooks, and scheduled executions. Each function will have its own URL, execute in its own isolated container, and have its own configurable environment variables and permissions.
-# 🚀 Appwrite Node 🎉
+## About Me
 
-Welcome to **Appwrite Node**, a Node.js backend application utilizing the powerful [Appwrite](https://appwrite.io/) backend server and the [Appwrite Node SDK](https://appwrite.io/docs/quick-starts/node) for creating and managing a task list. This project is part of Hacktoberfest, so feel free to explore, contribute, and make it awesome! 💻🎃
+I'm Sam, and I'm passionate about product engineering and web development. I create videos that will help you learn web development.
+
+## What You'll Find Here
+
+- **[ Angular ]**: [Learn the fundamentals. I explained everything you need to get started with this JavaScript framework written in TypeScript. It is the web development framework for building the future. works at any scale. Loved by millions. Build for everyone.  open-source framework for building single-page client applications using HTML and TypeScript.]
+- **[ Javascript ]**: [JavaScript is a powerful programming language that can add interactivity to a website. JavaScript is easy to learn. It's the foundation of frontend web development.]
+- **[ Career Tips ]**: [self-assessment, goal setting, action planning, implementation, and refinement. By following these steps, you can develop a road map for achieving your career goals. Tips to improve your career development. Cultivating a beginner's mindset is a critical part of career growth. critical part of your professional growth.]
+- **[ Common Errors ]**: [Mistakes to Avoid in Software Development Projects.]
+- **[ Development Tools ]**: [Top Software Development Tools List.]
+- **[ Typescript ]**: [TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors. TypeScript can help enhance and improve your web development projects.]
+- **[ Git & GitHub ]**: [GitHub is where over 100 million developers shape the future of software together. Contribute to the open-source community and manage Git repositories. This practical guide gets you to jump right into using GitHub, learning the basics of Git. Git and GitHub are two of the most essential tools in the world of software development.]
+- **[ Video Conferencing Tool ]**: [Unlock the potential of video conferencing software development. Dive into our guide for insights on key features and cost factors.  If you're looking to integrate video communication into your app or planning to build a video streaming/conference app from scratch, create a fully customized audio & video conferencing app.]
+
+
+### About the app
+Implemented appwrite features backend
+
+## Subscribe and Stay Updated!
+
+Don't miss out on new videos! Subscribe to my channel and hit the notification bell 🔔 to receive updates whenever I upload fresh content. Let's learn, laugh, and explore together!
+
+[!Subscribe to My Channel](http://youtube.com/@neweraofcoding)
+
+## Connect with Me
+
+- **YouTube**: [YouTube Channel Link](http://youtube.com/@neweraofcoding)
+- **Facebook**: [Facebook Page Link](https://www.facebook.com/learnangular2plus/)
+- **Instagram**: [Instagram Page Link](https://www.instagram.com/angular_development/)
+
+Feel free to reach out, comment on videos, and share your thoughts. I appreciate your support! 🙌
+
+## License
+
+This project is licensed under the MIT License.
 
 ---
 
-## 🌟 Features
-- **Create, Read, Update, and Delete (CRUD)** functionality for a task list using Appwrite as the backend.
-- **Seeding Tasks**: Automatically generates seed data for a quick start.
-- **Easy Setup and Deployment**: Quickly get up and running with minimal configuration.
-- **Hacktoberfest Friendly**: Contributions are welcome, and relevant pull requests will receive the `hacktoberfest-accepted` label! 🏆
+If you have any questions or need further assistance, feel free to ask! 🚀
 
----
+##  Steps to contribute and generate PR(pull request)
 
-## 🚀 Quick Start
-
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/yourusername/appwrite-node.git
-    cd appwrite-node
-    ```
-
-2. **Install Dependencies**:
-    ```bash
-    npm install
-    ```
-
-3. **Run the Application**:
-    ```bash
-    node app.js
-    ```
-
-This will start your Appwrite Node backend, making it ready to manage tasks through the Appwrite API.
-
----
-
-## 🛠️ Prerequisites
-
-To run this project, you’ll need:
-
-- **Appwrite Setup**: Familiarity with Appwrite and Node.js.
-- **Appwrite SDK**: Installed via `npm` to communicate with your Appwrite backend.
-
-### 🔑 Environment Variables
-
-Create a `.env` file and add the following credentials:
-
-```env
-APPWRITE_ENDPOINT=<Your_Appwrite_Endpoint>
-APPWRITE_PROJECT_ID=<Your_Project_ID>
-APPWRITE_API_KEY=<Your_API_Key>
+ ###  clone the repository
+clone the forked repository to your system. Go to your GitHub account, open the forked repository, click on the code button and then clone the repository.
+If you want to use the terminal, use the following commands after you fork the repository, open the terminal type the given command
 ```
+git clone repo url
+```
+### create a branch
+ create a branch on your local repository to solve a problem.
 
----
-## 🤝How to make Contribution
+Terminal commands
+```
+git checkout -b your_new_branch_name
+```   
+###   add & commit
+add your changes(folder) to that branch.
+Make necessary changes and commit those changes. Terminal commands
+```
+git add .
+git commit -m "your-commit-message"
+```
+### push changes to github
+finally, push your local repository to the remote repository compare & submit a pull request
 
-We welcome contributions from developers of all skill levels! Whether you're fixing a bug, adding new features, or improving documentation, your help is appreciated. 
+terminal commands
+```
+git push origin 
+```
+Go to your repository on GitHub, you'll see a compare & pull request button. Click on that button.
 
-To contribute:
+Now submit the pull request.
+   
+For quick approval of the pull request, reach out to me on the mentioned social media channels.
+```bash
 
-1. ⭐ Star the repository to show your support.
-2. 📝 Create an issue outlining how you'd like to contribute to the project.
-3. 🍴 Fork the repository to make your own copy:
-   ```sh
-   # Click on the "Fork" button at the top right of the repository page
-4. 💻 Implement your changes in the forked repository by creating a new branch for your feature or fix:
-   ```
-   git checkout -b feature-or-fix-name
-   ```
-5. Make your changes and commit them using Conventional Commits:
-   ```
-   git commit -m "feat: describe your changes"
-   ```
-6. 🔄 Push your branch:
-   ```
-   git push origin feature-or-fix-name
-   ```
-7. Open a pull request and describe the changes you made, mentioning the issue number you're addressing.
-8. ⏳ Wait for review and feedback from the maintainers.
 
----
 
-   ## 📂 Repository Links for More Contributions
-Explore and contribute to more projects across the following repositories:
+ _____ _                 _     __   __            
+|_   _| |               | |    \ \ / /            
+  | | | |__   __ _ _ __ | | __  \ V /___  _   _   
+  | | | '_ \ / _` | '_ \| |/ /   \ // _ \| | | |  
+  | | | | | | (_| | | | |   <    | | (_) | |_| |  
+  \_/ |_| |_|\__,_|_| |_|_|\_\   \_/\___/ \__,_|  
+                                                  
+                                                  
+______                                            
+|  ___|                                           
+| |_ ___  _ __                                    
+|  _/ _ \| '__|                                   
+| || (_) | |                                      
+\_| \___/|_|                                      
+                                                  
+                                                  
+______      _               _   _               _ 
+| ___ \    (_)             | | | |             | |
+| |_/ / ___ _ _ __   __ _  | |_| | ___ _ __ ___| |
+| ___ \/ _ \ | '_ \ / _` | |  _  |/ _ \ '__/ _ \ |
+| |_/ /  __/ | | | | (_| | | | | |  __/ | |  __/_|
+\____/ \___|_|_| |_|\__, | \_| |_/\___|_|  \___(_)
+                     __/ |                        
+                    |___/                         
 
-- [angulardevelopment](https://github.com/angulardevelopment)
-- [codeforwebdevelopment](https://github.com/codeforwebdevelopment)
-- [emberjsdevelopment](https://github.com/emberjsdevelopment)
-- [ionicappdevelopment](https://github.com/ionicappdevelopment)
-- [microsoftdotnetdevelopment](https://github.com/microsoftdotnetdevelopment)
-- [NestJS-framework](https://github.com/NestJS-framework)
-- [NodeJSEngineering](https://github.com/NodeJSEngineering)
-- [Programming-Tips-for-Success](https://github.com/Programming-Tips-for-Success)
-- [pythonprogramming-development](https://github.com/pythonprogramming-development)
-- [reactjsdevelopment](https://github.com/reactjsdevelopment)
-- [vuejsdevelopment](https://github.com/vuejsdevelopment)
+ 
 
----
-## 🤔 Got Questions?
-If you have any questions or run into any issues, feel free to open an issue or reach out through Discord. We’re here to help!
+
+```
+---------
+```javascript
+
+if (youEnjoyed) {
+ //  (star ⭐ & fork 🍽️) this repository.
+ // - Fork this repository by clicking on the fork button at the top of this page. This will create a copy of this repository in your account.
+    starThisRepository();
+}
+
+```
+---------
+happy coding fellas!!💕✨
+-----------
+ 
